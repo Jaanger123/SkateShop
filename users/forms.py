@@ -20,7 +20,6 @@ class CustomUserChangeForm(UserChangeForm):
 
 
 class RegistrationForm(forms.ModelForm):
-    # username = forms.CharField(max_length=150, required=True)
     password = forms.CharField(min_length=8, required=True, widget=forms.PasswordInput)
     password_confirmation = forms.CharField(min_length=8, required=True, widget=forms.PasswordInput(attrs={'placeholder': 'Confirm your password'}))
     email = forms.EmailField(max_length=100, required=True, widget=forms.TextInput(attrs={'placeholder': 'Email'}))

@@ -393,8 +393,11 @@ a:focus {
   background-color: #f3c93e;
 }
 
+.product_section .heading_container {
+  margin-bottom: 25px;
+}
 
-.box {
+.product_section .box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -411,7 +414,7 @@ a:focus {
   overflow: hidden;
 }
 
-.box .img-box {
+.product_section .box .img-box {
   background-color: #f8f8f8;
   width: 100%;
   height: 275px;
@@ -428,11 +431,12 @@ a:focus {
   padding: 15px;
 }
 
-.box .img-box img {
+.product_section .box .img-box img {
   height: 175px;
   max-width: 100%;
 }
-.box .img-box .add_cart_btn {
+
+.product_section .box .img-box .add_cart_btn {
   display: inline-block;
   width: 175px;
   text-align: center;
@@ -451,12 +455,12 @@ a:focus {
   z-index: 3;
 }
 
-.box .img-box .add_cart_btn:hover {
+.product_section .box .img-box .add_cart_btn:hover {
   background-color: #f3c93e;
   color: #ffffff;
 }
 
- .box .img-box::before {
+.product_section .box .img-box::before {
   content: "";
   position: absolute;
   left: 0;
@@ -470,7 +474,7 @@ a:focus {
   transition: all .2s;
 }
 
- .box .detail-box {
+.product_section .box .detail-box {
   padding-top: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -482,7 +486,7 @@ a:focus {
   width: 100%;
 }
 
- .box .product_info {
+.product_section .box .product_info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -491,20 +495,20 @@ a:focus {
           justify-content: space-between;
 }
 
- .box .star_container {
+.product_section .box .star_container {
   color: #f2b01e;
 }
 
-.box:hover .img-box .add_cart_btn {
+.product_section .box:hover .img-box .add_cart_btn {
   opacity: 1;
   visibility: visible;
 }
 
- .box:hover .img-box::before {
+.product_section .box:hover .img-box::before {
   opacity: .55;
 }
 
- .btn_box {
+.product_section .btn_box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -514,7 +518,7 @@ a:focus {
   margin-top: 45px;
 }
 
- .btn_box .view_more-link {
+.product_section .btn_box .view_more-link {
   display: inline-block;
   padding: 10px 45px;
   background-color: #f3c93e;
@@ -525,7 +529,7 @@ a:focus {
   transition: all .3s;
 }
 
- .btn_box .view_more-link:hover {
+.product_section .btn_box .view_more-link:hover {
   background-color: transparent;
   color: #f3c93e;
 }

@@ -18,9 +18,9 @@ class Category(models.Model):
 
 class Product(models.Model):
     STATUS_CHOICES = (
-        ('in stock', 'В наличии'),
-        ('out of stock', 'Нет в наличии'),
-        ('awaiting', 'ожидается')
+        ('In stock', 'В наличии'),
+        ('Out of stock', 'Нет в наличии'),
+        ('Awaiting', 'Ожидается')
     )
 
     name = models.CharField(max_length=100)
@@ -30,7 +30,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='images')
     category = models.ForeignKey(Category, on_delete=models.CASCADE,
                                  related_name='products')
-    likes = models.ManyToManyField(CustomUser, related_name='product')
+    likes = models.ManyToManyField(CustomUser, related_name='product', blank=True)
     add_date = models.DateTimeField(auto_now_add=True)
 
     def total_likes(self):

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{%block content %}
+{% block content %}
 
     <!-- slider section -->
     <section class="slider_section ">
@@ -68,156 +68,145 @@
   </div>
 
 
-  <!-- product section -->
-  <div class="heading_container heading_center" style="margin-top: 5%; margin-bottom: -8%">
-          <h1 style="font-size: 60px;">
-          Recent added products
-        </h1>
-  </div>
+<!-- product section -->
+<div class="heading_container heading_center" style="margin-top: 5%; margin-bottom: -8%">
+  <h1 style="font-size: 60px;">Recent added products</h1>
+</div>
 
-
-  <div class="products" style="padding: 15% 15%">
-{% if products  %}
+<div class="products" style="padding: 15%;">
+  {% if products %}
     {% for product in products %}
-
-      <div class="">
-          <div class="box">
-            <div class="img-box">
-              <img src="{{ product.image.url }}" alt="">
-              {% if product.status == 'in stock' %}
-                <a href="{% url 'cart_add_url' product.id %}" class="add_cart_btn">
-                  <span>
-                    Add To Cart
-                  </span>
-                </a>
-              </div>
+      <div class="row" style="border: solid #3a4468; border-radius: 25px;">
+        <div class="box">
+          <div class="img-box" style="background-color: rgb(240, 240, 240); border: solid #3a4468; height: 400px;">
+            <img src="{{ product.image.url }}" alt="">
+            {% if product.status == 'In stock' %}
+              <a href="{% url 'cart_add_url' product.id %}" class="add_cart_btn">
+                <span>Add To Cart</span>
+              </a>
             {% else %}
-            <a href="{% url 'cart_add_url' product.id %}" class="add_cart_btn">
-                  <span>
-                    Add To Cart
-                  </span>
-                </a>
+              <a class="add_cart_btn">
+                <span>Out of stock</span>
+              </a>
             {% endif %}
-            <div class="detail-box">
+          </div>
+          <div class="detail-box">
+            <h5>
+              <a href="{% url 'product_detail_url' product.id %}">{{ product.name }}</a>
+            </h5>
+            <div class="product_info">
               <h5>
-                <a href="{% url 'product_detail_url' product.id %}">{{ product.name }}</a>
+                ${{ product.price }}
               </h5>
-              <div class="product_info">
-                <h5>
-                  ${{ product.price }}
-                </h5>
-              <p class="card-text" style="margin-top:1%;">{{ product.status }}</p>
-                <div class="star_container">
-                  <i class="fa fa-heart" aria-hidden="true" style="width: 25px; height: 20px;"></i>
-                  <span style="font-size: 18px;">Likes: {{ product.total_likes }}</span>
-                </div>
+              <div class="star_container">
+                <i class="fa fa-heart" aria-hidden="true" style="width: 25px; height: 20px;"></i>
+                Likes: {{ product.total_likes }}
               </div>
-          </div>
-        </div>
-    </div>
-          {% endfor %}
-
-    {% else %}
-    <h1>Products will add soon...</h1>
-
-{% endif%}
-
-  </div>
-  <!-- end product section -->
-
-  <!-- about section -->
-
-  <section class="about_section">
-    <div class="container-fluid  ">
-      <div class="row">
-        <div class="col-md-5 ml-auto">
-          <div class="detail-box pr-md-3">
-            <div class="heading_container">
-              <h2>
-                About us
-              </h2>
             </div>
-            <p>
-              Это проект был поднят за 3 дня, во время хакатона. <br>
-              Сделали Эшеров Шермат и Бараканов Жаангер.
-            </p>
-            <a href="">
-              Read More
-            </a>
-          </div>
-        </div>
-        <div class="col-md-6 px-0">
-          <div class="img-box" style="height: 750px;">
-            <img src="{% static 'images/bg3.jpg' %}" style="height: 100%" alt="">
           </div>
         </div>
       </div>
+    {% endfor %}
+  {% else %}
+    <h1>Products will be added soon...</h1>
+  {% endif %}
+</div>
+
+  <!-- end product section -->
+
+<!-- about section -->
+
+<section class="about_section">
+  <div class="container-fluid  ">
+    <div class="row">
+      <div class="col-md-5 ml-auto">
+        <div class="detail-box pr-md-3">
+          <div class="heading_container">
+            <h2>
+              About us
+            </h2>
+          </div>
+          <p>
+            Это проект был поднят за 3 дня, во время хакатона. <br>
+            Сделали Эшеров Шермат и Бараканов Жаангер.
+          </p>
+          <a href="">
+            Read More
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 px-0">
+        <div class="img-box" style="height: 750px;">
+          <img src="{% static 'images/bg3.jpg' %}" style="height: 100%" alt="">
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- end about section -->
 
-  <!-- why us section -->
+<!-- why us section -->
 
-  <section class="why_us_section layout_padding">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          Why Choose Us
-        </h2>
+<section class="why_us_section layout_padding">
+  <div class="container">
+    <div class="heading_container heading_center">
+      <h2>
+        Why Choose Us
+      </h2>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="box ">
+          <div class="img-box">
+            <img src="{% static 'images/w1.png' %}" style="height: 30px;">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Fast Delivery
+            </h5>
+            <p>
+              We have Sonic deliveries
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="box ">
-            <div class="img-box">
-            <img src="{% static 'images/w1.png' %}" alt="">
-            </div>
-            <div class="detail-box">
-              <h5>
-                Fast Delivery
-              </h5>
-              <p>
-                We have Sonic deliveries
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="box ">
-            <div class="img-box">
-              <img src="{% static 'images/w2.png' %}" alt="">
+      <div class="col-md-4">
+        <div class="box ">
+          <div class="img-box">
+            <img src="{% static 'images/w2.png' %}" style="height: 35px;">
 
-            </div>
-            <div class="detail-box">
-              <h5>
-                Cheap prices
-              </h5>
-              <p>
-                With fast delivery
-              </p>
-            </div>
+          </div>
+          <div class="detail-box">
+            <h5>
+              Cheap prices
+            </h5>
+            <p>
+              With fast delivery
+            </p>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="box ">
-            <div class="img-box">
-              <img src="{% static 'images/w3.png' %}" alt="">
-            </div>
-            <div class="detail-box">
-              <h5>
-                Best Quality
-              </h5>
-              <p>
-                Just trust us
-              </p>
-            </div>
+      </div>
+      <div class="col-md-4">
+        <div class="box ">
+          <div class="img-box">
+            <img src="{% static 'images/w3.png' %}" style="height: 35px;">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Best Quality
+            </h5>
+            <p>
+              Just trust us
+            </p>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- end why us section -->
+<!-- end why us section -->
 
 
   <!-- client section -->
@@ -241,6 +230,5 @@
   <script src="{% static 'js/bootstrap.js' %}"></script>
   <!-- custom js -->
   <script src="{% static 'js/custom.js' %}"></script>
-
 
 {% endblock %}

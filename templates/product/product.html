@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- {% block head %}
+{% endblock %} -->
+<!-- product section -->
+{% block content %}
+
+{% if products %}
+<div class="products" style="padding: 15%;">
+  {% for product in products %}
+    <!-- <div class="row" style="border: solid #3a4468; border-radius: 25px; margin-bottom: 5%;">
+      <div class="box">
+        <div class="img-box" style="background-color: rgb(240, 240, 240); border: solid #3a4468; height: 400px;">
+          <img src="{{ product.image.url }}" alt="">
+          {% if product.status == 'In stock' %}
+            <a href="{% url 'cart_add_url' product.id %}" class="add_cart_btn">
+              <span>Add To Cart</span>
+            </a>
+          {% else %}
+            <a class="add_cart_btn">
+              <span>Out of stock</span>
+            </a>
+          {% endif %}
+        </div>
+        <div class="detail-box">
+          <h5>
+            <a href="{% url 'product_detail_url' product.id %}">{{ product.name }}</a>
+          </h5>
+          <div class="product_info">
+            <h5>
+              ${{ product.price }}
+            </h5>
+            <div class="star_container">
+              <i class="fa fa-heart" aria-hidden="true" style="width: 25px; height: 20px;"></i>
+              Likes: {{ product.total_likes }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+    <div class="card" style="max-width: 540px;">
+        <div class="">
+          <img src="{{ product.image.url }}" class="card-image">
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+    </div>
+  {% endfor %}
+</div>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+
+      {% if page_obj.has_previous %}
+      <li class="page-item">
+
+        <a class="page-link" href="{% url 'product_list_url' %}?page={{ page_obj.previous_page_number }}" tabindex="-1" aria-disabled="true">Previous</a>
+      </li>
+      {% endif %}
+
+      <li class="page-item"><a class="page-link" href="">{{ page_obj.number }}</a></li>
+
+      {% if page_obj.has_next %}
+      <li class="page-item">
+
+        <a class="page-link" href="{% url 'product_list_url' %}?page={{ page_obj.next_page_number }}">Next</a>
+      </li>
+      {% endif %}
+
+    </ul>
+  </nav>
+{% else %}
+<div style="margin: 5% auto 12%; text-align: center;">
+  <h1 style="margin-bottom: 10%;">Products will be added soon...</h1>
+  <img src="{% static 'images/waiting.png' %}" style="width: 150px; height: 150px;">
+</div>
+{% endif %}
+
+<!-- end product section -->
+
+{% endblock %}

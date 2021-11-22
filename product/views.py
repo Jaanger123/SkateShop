@@ -18,14 +18,14 @@ def LikeView(request, pk):
 
 class ProductListView(ListView):
     model = Product
-    template_name = 'product.html'
+    template_name = 'product/product.html'
     context_object_name = 'products'
     paginate_by = 3
 
 
 class ProductDetailView(DetailView):
     model = Product
-    template_name = 'product_detail.html'
+    template_name = 'product/product_detail.html'
     context_object_name = 'product'
 
 
@@ -39,7 +39,7 @@ class AddCommentView(CreateView):
 
 class CheckoutView(CreateView):
     model = Checkout
-    template_name = 'product_buy.html'
+    template_name = 'product/product_buy.html'
     form_class = OrderForm
 
     def get_context_data(self, **kwargs):
@@ -55,7 +55,7 @@ class CheckoutView(CreateView):
 
 class SearchListView(ListView):
     model = Product
-    template_name = 'search.html'
+    template_name = 'product/search.html'
     context_object_name = 'products'
 
     def get_queryset(self):
@@ -74,7 +74,7 @@ class IsAdminMixin(UserPassesTestMixin):
 
 class CreateProductView(IsAdminMixin, CreateView):
     model = Product
-    template_name = 'create_product.html'
+    template_name = 'product/create_product.html'
     form_class = CreateProductForm
 
     def get_context_data(self, **kwargs):
@@ -88,7 +88,7 @@ class CreateProductView(IsAdminMixin, CreateView):
 
 class UpdateProductView(IsAdminMixin, UpdateView):
     model = Product
-    template_name = 'update_product.html'
+    template_name = 'product/update_product.html'
     form_class = UpdateProductForm
     context_object_name = 'product_form'
     pk_url_kwarg = 'id'
@@ -104,7 +104,7 @@ class UpdateProductView(IsAdminMixin, UpdateView):
 
 class DeleteProductView(IsAdminMixin, DeleteView):
     model = Product
-    template_name = 'delete_product.html'
+    template_name = 'product/delete_product.html'
     pk_url_kwarg = 'id'
 
     def get_success_url(self):
