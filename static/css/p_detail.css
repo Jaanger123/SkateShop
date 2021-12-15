@@ -1,0 +1,59 @@
+.product {
+    display: flex;
+}
+
+.prod-image {
+    max-width: 50%;
+    max-height: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.prod-container {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    border: solid;
+}
+
+.prod-content {
+    width: 70%;
+    margin: 10% 0;
+    /* border: solid; */
+}
+
+.prod-price-like {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.prod-button {
+    width: 60%;
+}
+
+.prod-button-con {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.prod-card-desc {
+    min-height: 100px;
+}
+
+.grey {
+    color: grey;
+}
+
+.like {
+    /* width: 40px; */
+    color: red;
+}
+
+/* COMMENTS */
+
+.comment {
+    display: flex;
+    justify-content: space-around;
+}

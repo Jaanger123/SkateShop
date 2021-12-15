@@ -2,13 +2,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 10% 10% 6%;
+    padding: 15% 10%;
 }
 
 .card-container {
     transition: box-shadow 0.1s;
     border-radius: 6px;
-    margin-bottom: 5%;
 }
 
 .card {
@@ -22,7 +21,7 @@
 }
 
 .card-container:hover {
-    box-shadow: 7px 7px 4px rgb(109, 109, 109);
+    box-shadow: 7px 7px 4px rgb(72, 72, 72);
 }
 
 .card-content {
@@ -63,8 +62,4 @@
 
 .card-button {
     width: 100%;
-}
-
-.btn-content {
-    color: black;
 }
